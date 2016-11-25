@@ -20,7 +20,14 @@ class PostsController < ApplicationController
   end
 
   def search
-    debugger
+    @result_posts = []
+    # debugger
+    query_regex = /#{Regexp.quote(search_params[:query])}/i
+    Post.all.each do |post|
+      if query_regex =~ post.name
+        @result_posts << post
+      end
+    end
     # write search function here
   end
 
@@ -78,6 +85,10 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:name, :text)
+    end
+
+    def search_params
+      params.permit(:query)
     end
 
 end
