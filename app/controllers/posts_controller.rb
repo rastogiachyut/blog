@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def search
+    debugger
     # write search function here
   end
 
