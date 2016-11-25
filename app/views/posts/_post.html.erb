@@ -1,0 +1,35 @@
+<% post ||= @post %>
+<h2><%= "#{post.name}" %></h2>
+<div class="well well-sm">
+  <p class="lead"><%= simple_format(post.text) %></p>
+</div>
+<% post.comments.each do |comment| %>
+  <blockquote>
+    <p><%= "#{comment.text}" %></p>
+    <small>Comment by 
+      <cite title="Source Title">
+        <%= "#{post.user.first_name} #{post.user.last_name}" %>
+      </cite>
+    </small>
+  </blockquote>
+<% end %>
+<% if signed_in? %>
+  <div class="well well-sm">
+    <%= form_tag user_post_comments_path(current_user, post), html: {method: 'create' ,class: 'form-horizontal'} do |f| %>
+      <%= render partial: 'shared/errors', locals: { object: post } %>
+      <fieldset>
+        <div class="form-group">
+          <%= label_tag :text, "Comment:", class: "col-md-2 control-label lead" %>
+          <div class="col-md-8">
+            <%= text_area_tag :text, nil, cols: 20, rows: 2, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-8 col-md-offset-2">
+            <%= submit_tag "Submit", class: "btn btn-default btn-success" %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+<% end %>

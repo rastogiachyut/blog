@@ -1,0 +1,14 @@
+<h1>My Posts</h1>
+
+<body>
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <%= link_to 'Show', post %>
+    <%= link_to 'Edit', edit_user_post_path(current_user, post) %>
+    <%= link_to 'Destroy', user_post_path(current_user, post), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</body>>
+
+<br>
+
+<%= link_to 'New Post', new_user_post_path %>

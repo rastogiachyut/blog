@@ -1,0 +1,10 @@
+<h1>Latest Entries</h1>
+
+<body>
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <%= link_to 'Show', post %>
+  <% end %>
+</body>>
+
+<br>

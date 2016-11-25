@@ -1,0 +1,30 @@
+<h1>Editing Post</h1>
+
+<div class="well well-sm">
+  <%= form_for(@post, url: user_post_path(current_user, @post), html: {method: "patch", class: 'form-horizontal'}) do |f| %>
+    <%= render partial: 'shared/errors', locals: { object: @post } %>
+    <fieldset>
+      <legend>Write Article</legend>
+      <div class="form-group">
+        <%= f.label :name, "Article name*:", class: "col-md-2 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :text, "Content*:", class: "col-md-2 control-label" %>
+        <div class="col-md-8">
+          <%= f.text_area :text, cols: 20, rows: 40, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-8 col-md-offset-2">
+          <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
+
+<%= link_to 'Show', @post %> |
+<%= link_to 'Back', user_posts_path %>
