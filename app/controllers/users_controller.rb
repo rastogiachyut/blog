@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
   before_action :ensure_anonymous, only: [:new, :create]
 
   def new
     @user = User.new
+  end
+
+  def show
+    @avatar = current_user.avatars.new
+    # FIXME_AB: fix so that user can choose an image from his currenty uploaded images
   end
 
   def create
@@ -15,6 +21,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def set_user
+      @user = User.find(params[:id])
+    end
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)

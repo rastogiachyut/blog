@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :avatars
   root 'posts#index_blog', as: 'home', via: :all
   get "/home" => "posts#index_blog"
   get "/search", to: "posts#search"
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  resources :users, only: [:create, :new] do
+  resources :users, only: [:create, :new, :show] do
+    resource :avatars, only: [:index, :create, :new]
     resources :posts do
       resources :comments, only: [:destroy, :create, :new]
     end

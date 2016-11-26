@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :posts
   has_many :comments
+  has_many :avatars
 
   validates :first_name, :last_name, presence: true
   validates :email, uniqueness: {case_sensitive: false}, presence: true, format: {
