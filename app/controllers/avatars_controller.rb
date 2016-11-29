@@ -11,7 +11,6 @@ class AvatarsController < ApplicationController
 
   def create
     # FIXME_AB: redo using nested attributes, forms and possibly form builder for multiple image upload forms
-    debugger
     @avatar = current_user.avatars.new(avatar_params)
     if @avatar.save
       redirect_to user_path(current_user), notice: 'Avatar was successfully created.'
