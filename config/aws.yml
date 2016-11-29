@@ -1,0 +1,9 @@
+development:
+  access_key_id: "AKIAICXMIS73B4GIXW2Q"
+  secret_access_key: "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"
+test:
+  access_key_id: "AKIAICXMIS73B4GIXW2Q"
+  secret_access_key: "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"
+production:
+  access_key_id: "AKIAICXMIS73B4GIXW2Q"
+  secret_access_key: "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"
