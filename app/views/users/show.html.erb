@@ -1,8 +1,8 @@
 <div class="well well-sm">
   <% if current_user.avatars.size > 0 %>
-    <%= image_tag current_user.avatars.first.image.url(:thumb) %>
+    <%= image_tag current_user.avatars[-2].image.url(:thumb) %>
   <% end %>
-  <%= form_for(@avatar, html: {method: 'create' ,class: 'form-horizontal'}) do |f| %>
+  <%= form_for(@avatar, multipart: true, html: {method: 'create' ,class: 'form-horizontal'}) do |f| %>
     <%= render partial: 'shared/errors', locals: { object: @avatar } %>
     <fieldset>
       <legend>Add an Avatar</legend>
