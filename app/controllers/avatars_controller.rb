@@ -33,8 +33,3 @@ class AvatarsController < ApplicationController
       params.require(:avatar).permit(:image)
     end
 end
-
-# http://achyut-blog-assets.s3.amazonaws.com/avatars/images/000/000/012/thumb/Buffalo-Chicken-Burger.jpg?1480447404
-# http://s3.amazonaws.com/achyut-blog-assets/avatars/images/000/000/012/thumb/Buffalo-Chicken-Burger.jpg?1480447404
-# change end point from s3.amazonaws.com/appname-assets to appname-assets.s3.amazonaws.com
-# https://shrouded-meadow-87737.herokuapp.com/.s3.amazonaws.com/achyut-blog-assets/avatars/images/000/000/032/thumb/vinsol-logo.png?1480862823
