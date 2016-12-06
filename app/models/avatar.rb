@@ -8,7 +8,7 @@ class Avatar < ApplicationRecord
   def source(type)
     # debugger
     source_string = self.image.url(type)
-    source_string.slice!('/achyut-blog-assets')
+    source_string.slice!('achyut-blog-assets/')
     source_string
   end
 end
